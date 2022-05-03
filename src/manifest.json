@@ -1,6 +1,16 @@
 {
   "manifest_version": 3,
   "name": "Chrome Extension with React & Webpack",
+  "permissions": [
+    "webRequest",
+    "webNavigation",
+    "tabs",
+    "scripting"
+    
+  ],
+  "host_permissions": [
+ "<all_urls>"
+],
   "description": "A chrome extension boilerplate built with React 17, Webpack 5, and Webpack Dev Server 4",
   "options_page": "options.html",
   "background": { "service_worker": "background.bundle.js" },
@@ -8,16 +18,18 @@
     "default_popup": "popup.html",
     "default_icon": "icon-34.png"
   },
-  "chrome_url_overrides": {
-    "newtab": "newtab.html"
-  },
   "icons": {
     "128": "icon-128.png"
   },
   "content_scripts": [
     {
-      "matches": ["http://*/*", "https://*/*", "<all_urls>"],
+      "matches": ["http://www.builtinchicago.org/jobs/*", "https://www.builtinchicago.org/jobs/*"],
       "js": ["contentScript.bundle.js"],
+      "css": ["content.styles.css"]
+    },
+    {
+      "matches": ["http://www.builtinchicago.org/job/*", "https://www.builtinchicago.org/job/*"],
+      "js": ["contentJobScript.bundle.js"],
       "css": ["content.styles.css"]
     }
   ],
