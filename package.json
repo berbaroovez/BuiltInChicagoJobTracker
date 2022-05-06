@@ -13,6 +13,7 @@
     "prettier": "prettier --write '**/*.{js,jsx,ts,tsx,json,css,scss,md}'"
   },
   "dependencies": {
+    "@firebase/auth": "^0.19.12",
     "@hot-loader/react-dom": "^17.0.2",
     "firebase": "^9.6.11",
     "react": "^17.0.2",
